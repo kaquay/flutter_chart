@@ -1,4 +1,4 @@
-import 'dart:math';
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_chart/flutter_chart.dart';
@@ -41,15 +41,15 @@ class DonutChartAxis extends chart.Axis {
       ..color = new Color(0xFF999999);
 
     int index = 0;
-    percentages.fold(-0.5 * PI, (double startAngle, double value) {
-      final double sweepAngle = 2 * PI * value;
+    percentages.fold(-0.5 * math.pi, (double startAngle, double value) {
+      final double sweepAngle = 2 * math.pi * value;
       final legendAngle = startAngle + sweepAngle / 2.0;
       final Offset anchor = new Offset(
-          this.outerRadius * cos(legendAngle) + origin.dx,
-          this.outerRadius * sin(legendAngle) + origin.dy);
+          this.outerRadius * math.cos(legendAngle) + origin.dx,
+          this.outerRadius * math.sin(legendAngle) + origin.dy);
 
-      final startAnchorX = this.innerRadius * cos(legendAngle) + origin.dx;
-      final startAnchorY = this.innerRadius * sin(legendAngle) + origin.dy;
+      final startAnchorX = this.innerRadius * math.cos(legendAngle) + origin.dx;
+      final startAnchorY = this.innerRadius * math.sin(legendAngle) + origin.dy;
 
       canvas.drawLine(new Offset(startAnchorX, startAnchorY), anchor, paint);
 

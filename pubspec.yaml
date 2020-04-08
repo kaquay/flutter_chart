@@ -4,11 +4,13 @@ version: 0.0.6
 author: Tri Bui
 homepage: http://github.com/AgeOfMobile/flutter_chart
 
+environment:
+  sdk: ">=2.2.0 <3.0.0"
 #flutter:
 
 dependencies:
   flutter:
     sdk: flutter
 
-dev_dependencies:
-  test: ^0.12.0
+# dev_dependencies:
+  # test: ^0.12.0

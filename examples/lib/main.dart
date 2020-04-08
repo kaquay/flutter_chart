@@ -1,6 +1,6 @@
 import 'package:examples/donut_chart_demo.dart';
 import 'package:examples/line_chart_demo.dart';
-import 'package:examples/pie_chart_demo.dart';
+// import 'package:examples/pie_chart_demo.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
             children: <Widget>[
               new Container(height: 300.0, child: new LineChartDemo()),
               new Container(height: 300.0, child: new DonutChartDemo()),
-              new Container(height: 300.0, child: new PieChartDemo()),
+              // new Container(height: 300.0, child: new PieChartDemo()),
             ],
           ),
         ),

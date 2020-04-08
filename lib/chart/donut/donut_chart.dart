@@ -1,4 +1,4 @@
-import 'dart:math';
+import 'dart:math' as math;
 import 'dart:ui';
 
 import 'package:flutter/animation.dart';
@@ -42,7 +42,7 @@ class DonutChart extends Chart<DonutChartData> {
 }
 
 class _DonutChartPainter extends ChartPainter<DonutChartData> {
-  static const startAtAngle = -0.5 * PI;
+  static const startAtAngle = -0.5 * math.pi;
 
   Color _darkerColor(Color color, int amount) {
     int col = color.value;
@@ -69,7 +69,7 @@ class _DonutChartPainter extends ChartPainter<DonutChartData> {
 
     double innerRadius =
       this.data.radius != 0.0 ? this.data.radius :
-                                min(size.width, size.height) - this.data.arcWidth;
+                                math.min(size.width, size.height) - this.data.arcWidth;
     var index = 0;
 
     final Rect innerRect = new Rect.fromLTWH(
@@ -79,7 +79,7 @@ class _DonutChartPainter extends ChartPainter<DonutChartData> {
       innerRadius);
 
     values.fold(startAtAngle, (startAngle, value) {
-      double sweepAngle = value * 2 * PI;
+      double sweepAngle = value * 2 * math.pi;
       paint.color = this.data.colors[index];
       paint.shader = new Gradient.linear(new Offset(0.0, 0.0), new Offset(size.width, size.height),
           <Color>[
@@ -122,7 +122,7 @@ class _DonutChartPainter extends ChartPainter<DonutChartData> {
 
   // Skia (Flutter's drawing library) doesn't support sweepAngle >= 2 * PI so we need to split into 2 arcs
   void _arcTo(Path path, Rect rect, double startAngle, double sweepAngle, bool forceMoveTo) {
-    if (sweepAngle == 2 * PI || sweepAngle == -2 * PI) {
+    if (sweepAngle == 2 * math.pi || sweepAngle == -2 * math.pi) {
       path.arcTo(rect, startAngle, sweepAngle / 2, true);
       path.arcTo(rect, startAngle + sweepAngle / 2, sweepAngle / 2, forceMoveTo);
     } else {

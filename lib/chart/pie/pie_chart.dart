@@ -1,4 +1,4 @@
-import 'dart:math';
+import 'dart:math' as math;
 import 'dart:ui';
 
 import 'package:flutter/animation.dart';
@@ -11,7 +11,7 @@ import 'package:flutter_chart/scale/scale.dart';
 import 'package:meta/meta.dart';
 
 class PieChartData extends ChartData {
-  static const startAtAngle = -0.5 * PI;
+  static const startAtAngle = -0.5 * math.pi;
 
   PieChartData({
     @required List<DataSet> dataSets,
@@ -66,7 +66,7 @@ class _PieChartPainter extends ChartPainter<PieChartData> {
     var index = 0;
     values.forEach((value) {
       Path path = new Path();
-      double sweepAngle = value * 2 * PI;
+      double sweepAngle = value * 2 * math.pi;
       paint.color = this.data.colors[index];
       paint.shader = new Gradient.linear(new Offset(0.0, 0.0),
           new Offset(size.width, size.height),
@@ -78,7 +78,7 @@ class _PieChartPainter extends ChartPainter<PieChartData> {
 
       path.moveTo(size.width / 2, size.height / 2);
 
-      double radius = min(size.width, size.height) - index * this.data.arcWidthStep;
+      double radius = math.min(size.width, size.height) - index * this.data.arcWidthStep;
       double start = PieChartData.startAtAngle
         + animation.value * (startAngle - PieChartData.startAtAngle);
       double sweep = animation.value * sweepAngle;
